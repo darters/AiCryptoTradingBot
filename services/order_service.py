@@ -9,7 +9,8 @@ class OrderService:
             stop_loss = re.search(r"Stop-Loss Price: ([\d.]+)", ai_response).group(1)
             return entry_price, take_profit, stop_loss
         except AttributeError:
-            print('📢 Error parsing AI response')
+            print('📢 Error parsing AI response:', ai_response)
+            exit(1)
 
     # show only important fields to the user
     def display_formatted_orders(self, order, tp_order, sl_order):

@@ -11,7 +11,7 @@ def get_user_input():
     fields = re.sub(r'\s+', '', data).split(',')
     if len(fields) != 5:
         sys.exit(ValueError("📢 You must enter 5 values"))
-    
+ 
     symbol = fields[0].upper()
     interval = fields[1]
     start_time = fields[2]

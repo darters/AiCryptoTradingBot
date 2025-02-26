@@ -28,7 +28,6 @@ def main():
     print(candels_info, f"\n {last_candle_info}")
     
     ai_response = ai_service.get_orders(candles, last_candle)
-    print(ai_response)
     entry_price, tp, sl = order_service.parse_orders(ai_response)
     created_orders = binance_service.createOrders(symbol, entry_price, tp, sl, quantity)
     print(order_service.display_formatted_orders(*created_orders))
