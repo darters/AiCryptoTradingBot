@@ -19,7 +19,7 @@ class AiService:
             return completion.choices[0].message.content
         except Exception as e:
             print(f'📢 Error while sending request to AI: {e}')
-            return None
+            exit(0)
 
     def get_orders(self, candles, last_candle):
         response = self.send_request_to_chgpt(f"""{candles} {last_candle} 

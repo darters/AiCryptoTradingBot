@@ -20,19 +20,14 @@ def initialize_services():
 
 def main():
     # BTCUSDT, 1h, 2025-02-22 19:00:00, current_time, 0.01
-    symbol, interval, start_time, end_time, quantity = get_user_input()
+    # symbol, interval, start_time, end_time, quantity = get_user_input()
     ai_service, binance_service, candle_service, order_service = initialize_services()
+    symbol = "BTCUSDT"
+    interval = "1h"
+    start_time = "2024-02-26 12:00:00"
+    end_time = "2024-02-26 20:00:00"
 
-    candles, last_candle = binance_service.fetch_candle_info(symbol, interval, start_time, end_time)
-    candels_info, last_candle_info = candle_service.display_candle_info(candles, last_candle)
-    print(candels_info, f"\n {last_candle_info}")
-    
-    ai_response = ai_service.get_orders(candles, last_candle)
-    entry_price, tp, sl = order_service.parse_orders(ai_response)
-    created_orders = binance_service.createOrders(symbol, entry_price, tp, sl, quantity)
-    print(order_service.display_formatted_orders(*created_orders))
 
 if __name__ == "__main__":
     main()
-
 

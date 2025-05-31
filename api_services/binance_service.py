@@ -59,31 +59,6 @@ class BinanceService:
                 print("Last price ", last_data)
             return data, last_data
         except Exception as e:
-            print(f'📢 Error while sending request to BINANCE: {e}')
-
-    # def fetch_candle_info(self, symbol, interval, start_time, end_time):
-    #     url = "https://fapi.binance.com/fapi/v1/"
-    #     start_time = int(datetime.strptime(start_time, "%Y-%m-%d %H:%M:%S").timestamp() * 1000)
-    #     end_time = int(datetime.strptime(end_time, "%Y-%m-%d %H:%M:%S").timestamp() * 1000)
-    #     params = {
-    #         "symbol": symbol, "interval": interval, "startTime": start_time, "endTime": end_time
-    #     }
-    #     try:
-    #         candles_url = f"{url}klines"
-    #         response = requests.get(candles_url, params=params)
-    #         response.raise_for_status()
-    #         data = response.json()
-    #         last_data = None
-    #         if interval not in ['1m', '3m']:
-    #             current_candle_url = f"{url}ticker/price"
-    #             current_candle_response = requests.get(current_candle_url, params = {"symbol": symbol})
-    #             current_candle_response.raise_for_status()
-    #             last_data = current_candle_response.json()['price']
-    #             print("Last price ", last_data)
-    #         return data, last_data
-    #     except Exception as e:
-    #         print(f'📢 Error while sending request to BINANCE: {e}')
-
-  
+            print(f'📢 Error while sending request to BINANCE: {e}')  
          
 
